@@ -1,0 +1,51 @@
+package demo01;
+
+import java.util.Random;
+
+/*
+1.定义长度为10的int类型数组
+2.使用随机数(范围20-50之间,包括20和50)为数组进行赋值
+3.定义方法change(int[] arr),方法内实现,将数组中的奇数变为原来的2倍
+4.打印转换前及转换后的数组,格式如下:
+转换前:[21,25,26,28,29,50,48,47,45,44]
+转换后:[42,50,26,28,58,50,48,94,90,44]
+5.main方法中进行测试
+ */
+public class num1 {
+    public static void main(String[] args) {
+        int[] arr = new int[10];
+        Random ran = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = ran.nextInt(31)+20;
+        }
+        change(arr);
+    }
+    public static void change(int[] arr){
+        System.out.print("转换前：");
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            if(i==arr.length-1){
+                System.out.println(arr[i]+"]");
+                break;
+            }
+            System.out.print(arr[i]+",");
+        }
+        System.out.println();
+        System.out.print("转换后：");
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i]%2>0){
+                arr[i]=2*arr[i];
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if(i==arr.length-1){
+                System.out.println(arr[i]+"]");
+                break;
+            }
+            System.out.print(arr[i]+",");
+        }
+    }
+
+
+}

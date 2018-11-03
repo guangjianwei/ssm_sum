@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--配置spring创建容器时候要扫描的包-->
+    <context:component-scan base-package="cn.guangjian"></context:component-scan>
+    <bean id="accountDao" class="cn.guangjian.dao.impl.AccountDaoImpl">
+        <property name="runner" ref="queryRunner"></property>
+        <property name="connectionUtils" ref="connUtils"></property>
+    </bean>
+    <bean id="queryRunner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+        <!--注入数据源-->
+        <!--<constructor-arg name="ds" ref="dataSource"></constructor-arg>-->
+    </bean>
+    <!--配置数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/demo"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+    <bean id="account" class="cn.guangjian.domain.Account"></bean>
+    <bean id="connUtils" class="cn.guangjian.utils.ConnectionUtils">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--配置aop-->
+    <aop:config>
+        <!--首先配置切入点表达式-->
+        <aop:pointcut id="pt1" expression="execution(* cn.guangjian.service.impl.*.*(..))"></aop:pointcut>
+        <aop:aspect id="txAdvice" ref="transactionManager">
+            <!--配置前置通知：开启事务-->
+            <aop:before method="beginTransaction" pointcut-ref="pt1"></aop:before>
+            <!--配置后置通知：提交事务-->
+            <aop:after-returning method="commit" pointcut-ref="pt1"></aop:after-returning>
+            <!--配置异常通知：事务回滚-->
+            <aop:after-throwing method="rollback" pointcut-ref="pt1"></aop:after-throwing>
+            <!--配置最终通知：释放连接-->
+            <aop:after method="close" pointcut-ref="pt1"></aop:after>
+        </aop:aspect>
+    </aop:config>
+    <!--开启spring对注解aop事务的支持-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>

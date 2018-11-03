@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        });
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        $('#example').tooltip(options);
+    </script>
+</head>
+<body>
+<h1>你好，世界！</h1>
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+
+<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+<!-- HTML to write -->
+<a href="#" data-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
+
+<!-- Generated markup by the plugin -->
+<div class="tooltip top" role="tooltip">
+    <div class="tooltip-arrow"></div>
+    <div class="tooltip-inner">
+        Some tooltip text!
+    </div>
+</div>
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+    Popover on 右侧
+</button>
+<hr>
+<input type="text" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="请输入六位的数字!">
+<input  type="text"  data-toggle="popover"
+   data-trigger="focus"
+   data-content="您输入的内容不合法!">
+<script>
+    $('#example').popover(options);
+</script>
+<div class="container" style="width: 300px">
+    <center><h3>添加联系人页面</h3></center>
+    <form action="/addAllServlet" method="post">
+        <div class="form-group">
+            <label for="name">姓名：</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
+        </div>
+        <div class="form-group">
+            <label for="password">密码：</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+        </div>
+        <div class="form-group">
+            <label>性别：</label>
+            <input type="radio" name="sex" value="男" checked="checked"/>男
+            <input type="radio" name="sex" value="女"/>女
+        </div>
+
+        <div class="form-group">
+            <label for="age">年龄：</label>
+            <input type="text" class="form-control" id="age" name="age" placeholder="请输入年龄">
+        </div>
+
+        <div class="form-group">
+            <label for="address">籍贯：</label>
+            <select name="address" class="form-control" id="address">
+                <option value="广东">广东</option>
+                <option value="广西">广西</option>
+                <option value="湖南">湖南</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">手机号：</label>
+            <input type="text" class="form-control" name="phone" placeholder="请输入手机号码" id="phone"/>
+        </div>
+
+        <div class="form-group">
+            <label for="date">注册时间：</label>
+            <input type="date" class="form-control" name="datetime" placeholder="请输入注册时间" id="date"/>
+        </div>
+
+        <div class="form-group" style="text-align: center">
+            <input class="btn btn-primary" type="submit" value="提交" />
+            <input class="btn btn-default" type="reset" value="重置" />
+            <input class="btn btn-default" type="button" value="返回" />
+        </div>
+    </form>
+</div>
+</body>
+</html>

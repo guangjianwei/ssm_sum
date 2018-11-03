@@ -1,0 +1,16 @@
+cn\guangjian\dao\RolesDao.class
+cn\guangjian\dao\SysLogDao.class
+cn\guangjian\domain\Orders.class
+cn\guangjian\dao\UserDao.class
+cn\guangjian\dao\OrdersDao.class
+cn\guangjian\domain\Traveller.class
+cn\guangjian\domain\user\UserInfo.class
+cn\guangjian\domain\Member.class
+cn\guangjian\domain\log\SysLog.class
+cn\guangjian\domain\user\Role.class
+cn\guangjian\dao\MemberDao.class
+cn\guangjian\domain\Product.class
+cn\guangjian\dao\ProductDao.class
+cn\guangjian\dao\TravellerDao.class
+cn\guangjian\dao\PermissionDao.class
+cn\guangjian\domain\user\Permission.class

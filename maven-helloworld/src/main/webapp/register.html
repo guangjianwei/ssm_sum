@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>注册</title>
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" href="css/register.css">
+		<!--导入jquery-->
+		<script src="js/jquery-3.3.1.js"></script>
+		<style>
+			#p_error{
+				color: red;
+				text-align: center;
+			}
+		</style>
+		<script>
+			var flag_checkUsername=false;
+			function allCheck(obj){
+                if(obj.value==null||obj.value.length==0){
+                    $(obj).css("border","1px solid red");
+                    return false;
+                }else{
+                    $(obj).css("border","");
+                    return true;
+				}
+
+			}
+			//用户名校验8-20位
+			function checkUsername(){
+				//这里进行用户名数据库的校验
+                var username = $("#username").val();
+                var flag = false;
+                //如果username为空则不进行异步提交判断
+				if(username==null||username==""||username.length==0){
+				    return false;
+				}else{
+                $.post("user/checkUname",
+					{username:username},
+				 function (data) {
+				//这里的data返回的时true/false,所以直接返回就可以了
+					if(!data.flag){
+					  $("#p_error").html("");
+					}else{
+					  $("#p_error").html("该用户名称已经被注册!请重新输入");
+					}
+                     flag_checkUsername = !data.flag;
+                }, "json");
+                }
+			}
+			//密码校验(3-6位所有字符)
+			function checkPassword(){
+			    var password = $("#password").val();
+			    var reg_pass=/^.{3,6}$/;
+			   var flag = reg_pass.test(password);
+			   if(flag){
+			       return true;
+			   }else{
+                   $("#password").css("border","1px solid red");
+                   $("#p_error").html("请输入3-6位的密码");
+                   return false;
+			   }
+			}
+			//对email进行校验
+			function checkEmail(){
+			    var email = $("#email").val();
+			    var reg_email = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                var flag =reg_email.test(email);
+                if(flag){
+                    return true;
+                }else{
+                    $("#email").css("border","1px solid red");
+                    $("#p_error").html("请输入有效的Email");
+                    return false;
+                }
+			}
+			//对姓名进行校验
+			function checkName(){
+			    return true;
+			}
+			//对手机号进行校验
+			function checkPhone(){
+			    var phoneNumber = $("#telephone").val();
+				var reg_phoneNumber = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+                var flag =reg_phoneNumber.test(phoneNumber);
+                if(flag){
+                    return true;
+                }else{
+                    $("#email").css("border","1px solid red");
+                    $("#p_error").html("请输入正确的手机号码");
+                    return false;
+                }
+			}
+			$(function () {
+			    //这里对表单内容进行校验
+				//1.如果表单为空或者是不符合规则,则是表单框变成红色
+				 //2.由于数据库中的姓名是唯一的,所以,要对姓名进行进一步的校验
+				//这里进行非空校验
+             $(".rgist_form").blur(function () {
+                 $("#p_error").html("");
+				 allCheck(this);
+				 //这里先进行空的判断,在执行用户名检测.
+                 checkUsername();
+             });
+             //添加表单提交的事件
+				$("#registerForm").submit(function () {
+				    //再次对用户名进行验证
+                    // //这里进行用户名数据库的校验
+                    // var username = $("#username").val();
+                    // var flag = false;
+                    // //如果username为空则不进行异步提交判断
+                    // if(username==null||username==""||username.length==0){
+                     //    flag=false;
+                    // }else{
+                     //    $.post("user/checkUname",
+                     //        {username:username},
+                     //        function (data) {
+                     //            //这里的data返回的时true/false,所以直接返回就可以了
+                     //            if(!data.flag){
+                     //                $("#p_error").html("");
+                     //            }else{
+                     //                $("#p_error").html("该用户名称已经被注册!请重新输入");
+                     //            }
+                     //            flag = !data.flag;
+                     //        }, "json");
+                    // }
+                        //对所有class="rgist_form"进行遍历,如果有一个必填项目为空,则返回false
+                        var flag1 = true;
+                        $(".rgist_form").each(function(index,element){
+                            var flag2 = allCheck(element);
+                            if(!flag2){
+                                flag1=false;
+                            }
+                        });
+                        //进行异步提交
+                        if(checkEmail()&&checkName()&&checkPassword()&&checkPhone()&&flag1&&flag_checkUsername){
+                            $.post("user/addUser",$(this).serialize(),function (data) {
+                                //直接跳转到登录页面,先不做邮箱验证
+                                window.location.href = "./login.html";
+                            });
+                        }
+                        return false;
+                    });
+            });
+		</script>
+    </head>
+	<body>
+	<!--引入头部-->
+	<div id="header"></div>
+        <!-- 头部 end -->
+    	<div class="rg_layout">
+    		<div class="rg_form clearfix">
+    			<div class="rg_form_left">
+    				<p>新用户注册</p>
+    				<p>USER REGISTER</p>
+    			</div>
+    			<div class="rg_form_center">
+					
+					<!--注册表单-->
+					<p id="p_error"></p>
+    				<form id="registerForm">
+						<!--提交处理请求的标识符-->
+						<input type="hidden" name="action" value="register">
+    					<table style="margin-top: 25px;">
+    						<tr>
+    							<td class="td_left">
+    								<label for="username">用户名</label>
+    							</td>
+    							<td class="td_right">
+    								<input type="text" id="username" name="username" placeholder="请输入账号" class="rgist_form" >
+    							</td>
+    						</tr>
+    						<tr>
+    							<td class="td_left">
+    								<label for="password">密码</label>
+    							</td>
+    							<td class="td_right">
+    								<input type="text" id="password" name="password" placeholder="请输入密码"  class="rgist_form">
+    							</td>
+    						</tr>
+    						<tr>
+    							<td class="td_left">
+    								<label for="email">Email</label>
+    							</td>
+    							<td class="td_right">
+    								<input type="text" id="email" name="email" placeholder="请输入Email"  class="rgist_form">
+    							</td>
+    						</tr>
+    						<tr>
+    							<td class="td_left">
+    								<label for="name">姓名</label>
+    							</td>
+    							<td class="td_right">
+    								<input type="text" id="name" name="name" placeholder="请输入真实姓名"  class="rgist_form">
+    							</td>
+    						</tr>
+    						<tr>
+    							<td class="td_left">
+    								<label for="telephone">手机号</label>
+    							</td>
+    							<td class="td_right">
+    								<input type="text" id="telephone" name="telephone" placeholder="请输入您的手机号"  class="rgist_form">
+    							</td>
+    						</tr>
+    						<tr>
+    							<td class="td_left">
+    								<label for="sex">性别</label>
+    							</td>
+    							<td class="td_right gender">
+    								<input type="radio" id="sex" name="sex" value="男" checked> 男
+    								<input type="radio" name="sex" value="女"> 女
+    							</td>
+    						</tr>
+    						<tr>
+    							<td class="td_left">
+    								<label for="birthday">出生日期</label>
+    							</td>
+    							<td class="td_right">
+    								<input type="date" id="birthday" name="birthday" placeholder="年/月/日"  class="rgist_form">
+    							</td>
+    						</tr>
+    						<tr>
+    							<td class="td_left">
+    								<label for="check">验证码</label>
+    							</td>
+    							<td class="td_right check">
+    								<input type="text" id="check" name="check" class="check">
+    								<img src="checkCode" height="32px" alt="" onclick="changeCheckCode(this)">
+									<script type="text/javascript">
+										//图片点击事件
+										function changeCheckCode(img) {
+											img.src="checkCode?"+new Date().getTime();
+                                        }
+									</script>
+    							</td>
+    						</tr>
+    						<tr>
+    							<td class="td_left"> 
+    							</td>
+    							<td class="td_right check"> 
+    								<input type="submit" class="submit" value="注册" id="submit">
+									<span id="msg" style="color: red;"></span>
+    							</td>
+    						</tr>
+    					</table>
+    				</form>
+    			</div>
+    			<div class="rg_form_right">
+    				<p>
+    					已有账号？
+    					<a href="login.html">立即登录</a>
+    				</p>
+    			</div>
+    		</div>
+    	</div>
+        <!--引入尾部-->
+    	<div id="footer"></div>
+		<!--导入布局js，共享header和footer-->
+		<script type="text/javascript" src="js/include.js"></script>
+    	
+    </body>
+</html>

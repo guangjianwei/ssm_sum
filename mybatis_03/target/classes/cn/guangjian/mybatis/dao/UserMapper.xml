@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace是确定该方法是在哪一个dao接口下-->
+<mapper namespace="cn.guangjian.mybatis.dao.UserDao">
+    <!--配置查询结果的属性名和数据库列名不一致的情况-->
+    <!--<resultMap id="userMap" type="cn.guangjian.mybatis.domain.User">-->
+        <!--主键字段对应-->
+        <!--前面配置的时我们user类中的属性,后面配置的时数据库中对应的列名-->
+        <!--<id property="userId" column="id"></id>-->
+        <!--非主属性-->
+        <!--<result property="userName" column="username"></result>-->
+        <!--<result property="userAddress" column="address"></result>-->
+        <!--<result property="userSex" column="sex"></result>-->
+        <!--<result property="userBirthday" column="birthday"></result>-->
+    <!--</resultMap>-->
+    <!--当上方的resultMap配置完成过后,在下方有返回结果的resultTyp要改成resultMap="上方的id值"-->
+    <!--id方法名称   resultType返回封装的类型-->
+    <select id="findAll" resultType="user">
+        select * from user;
+    </select>
+    <!--parameterType参数类型-->
+    <insert id="addAll" parameterType="cn.guangjian.mybatis.domain.User">
+--         keyProperty:钥匙属性id   keyColumn:数据库列名id  resultType:返回类型   order:在插入之后执行
+     <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER" >
+         select last_insert_id();
+     </selectKey>
+      insert into user(username,birthday,sex,address) values( #{username},#{birthday},#{sex},#{address});
+    </insert>
+    <update id="update" parameterType="cn.guangjian.mybatis.domain.User">
+        update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id = #{id};
+    </update>
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from user where id = #{id};
+    </delete>
+    <select id="findByOne" parameterType="java.lang.Integer" resultType="cn.guangjian.mybatis.domain.User">
+        select * from user where id = #{id};
+    </select>
+    <!--模糊查询1-->
+    <select id="dimSearch" parameterType="string" resultType="cn.guangjian.mybatis.domain.User">
+        select * FROM  USER  WHERE  username  like #{username};
+    </select>
+    <!--模糊查询2  这里面的参数一定要写成是value-->
+    <select id="dimSearch1" parameterType="string" resultType="cn.guangjian.mybatis.domain.User">
+        select * FROM  USER  WHERE  username  like '%${value}%';
+    </select>
+    <select id="findTotal" resultType="java.lang.Integer">
+        select count(*) from user;
+    </select>
+    <!--根据QueryVo的条件进行查询-->
+    <!--这里参数的写法,先找到QueryVo中的属性user,再打".",找到user中的属性-->
+    <select id="findQueryVoOne" parameterType="cn.guangjian.mybatis.domain.QueryVo" resultType="cn.guangjian.mybatis.domain.User">
+        select * from user where id = #{user.id};
+    </select>
+</mapper>

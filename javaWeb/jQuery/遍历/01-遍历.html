@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    //第一种
+        $(function () {
+            $("#btn1").click(function () {
+                var $city = $("ul > li");
+                for(var i = 0; i<$city.length; i++){
+                    var innerHTML = $city[i].innerHTML;
+                   // $("#div1").innerHTML= $city[i].innerHTML;
+                $("#div1").append(innerHTML+",");}
+            });
+            $("#btn2").click(function () {
+                var $city = $("ul > li");
+                $city.each(function (index, element) {   //index相当于上面的i,element相当于上面的 $city[i].innerHTML
+                   // alert(element.innerHTML);
+                    $("#div2").append(element.innerHTML+",");
+                });
+            });
+            $("#btn3").click(function () {
+                var $city = $("ul > li");
+                for(li of $city){
+                    alert(li.innerHTML);
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+<input type="button" value="第一种遍历" id="btn1">
+<input type="button" value="第二种遍历" id="btn2">
+<input type="button" value="第三种遍历" id="btn3">
+<ul id="city">
+    <li>北京</li>
+    <li>上海</li>
+    <li>天津</li>
+    <li>重庆</li>
+</ul>
+<div id="div1">第一种遍历方式:   </div>
+<div id="div2">第二种遍历方式:   </div>
+<div id="div3">第三种遍历方式:   </div>
+</body>
+</html>

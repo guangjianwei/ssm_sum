@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jq添加元素</title>
+	<script  src="../lib/jquery-3.3.1.min.js"></script>
+
+</head>
+
+
+<body>
+
+<div id="div1" class="div">fdsfdfsd</div>
+
+
+</body>
+<script>
+
+	//jq中常用api的使用
+    // 		val()函数可以获得元素value属性的值
+    // 		show()/hide()可以让元素显示/隐藏
+	//		attr()对于HTML元素我们自己自定义的DOM属性.
+	// 可以跟val()一样,input文本输入框中的值
+	// $("#username").val()
+	// $("#username").attr("value")
+	// $("#username")[0].value;
+	// 		prop()对于HTML元素本身就带有的固有属性.
+    // 		on()可以为元素绑定事件
+	//两种方式都可以添加点击事件,别的事件也可以通过此方式添加
+    $("#div1").on("click",function(){			//没有on
+        alert("段落被点击了。");
+    });
+
+
+    $("#div1").click(function () {				//没有on		js中才有on  document.getElementById("deleteSecelt").onclick = function () {}
+        alert("段落被点击了。");
+    })
+
+    $("#div1").blur
+
+
+	$(function () {
+	    //jq给元素添加自标签,通过html方法
+	    $("#div1").html("<a href='01.鼠标悬浮改变颜色功能.html'>java14期</a>")
+    })
+</script>
+</html>

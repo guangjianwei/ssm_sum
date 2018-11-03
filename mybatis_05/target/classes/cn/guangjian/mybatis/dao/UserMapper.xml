@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置resultMap-->
+
+<mapper namespace="cn.guangjian.mybatis.dao.UserDao">
+    <resultMap id="roleUsersMap" type="Role">
+        <id column="rid" property="id"></id>
+        <result column="ROLE_NAME" property="role_name"></result>
+        <result column="ROLE_DESC" property="role_desc"></result>
+        <collection property="users" ofType="User">
+            <id column="id" property="userId"></id>
+            <result column="username" property="userName"></result>
+            <result column="address" property="userAddress"></result>
+            <result column="sex" property="userSex"></result>
+            <result column="birthday" property="userBirthday"></result>
+        </collection>
+    </resultMap>
+    <resultMap id="userRolesMap" type="User">
+        <id column="id" property="userId"></id>
+        <result column="username" property="userName"></result>
+        <result column="address" property="userAddress"></result>
+        <result column="sex" property="userSex"></result>
+        <result column="birthday" property="userBirthday"></result>
+        <collection property="roles" ofType="role">
+            <id column="rid" property="id"></id>
+            <result column="ROLE_NAME" property="role_name"></result>
+            <result column="ROLE_DESC" property="role_desc"></result>
+        </collection>
+    </resultMap>
+      <select id="findRoleUsers" resultMap="roleUsersMap">
+          SELECT r.id AS rid,r.role_desc,r.role_name,u.* FROM role r
+          LEFT OUTER JOIN user_role ur ON r.id = ur.rid
+          LEFT OUTER JOIN USER u ON ur.uid = u.id
+      </select>
+    <select id="finUserRoles" resultMap="userRolesMap">
+        SELECT r.id AS rid,r.role_desc,r.role_name,u.* FROM USER u
+        LEFT OUTER JOIN user_role ur ON u.id = ur.uid
+        LEFT OUTER JOIN role r ON ur.rid = r.id
+    </select>
+    <select id="finRoles" resultType="Role">
+         SELECT r.id AS rid,r.role_name,r.role_desc FROM role r
+    </select>
+    <select id="findUsers" resultType="User">
+        select * from user
+    </select>
+</mapper>

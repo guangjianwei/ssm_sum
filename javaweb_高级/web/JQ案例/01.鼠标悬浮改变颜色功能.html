@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标悬浮改变颜色功能</title>
+	<script  src="../lib/jquery-3.3.1.min.js"></script>
+	<style>
+		div {
+			text-align: center;
+			margin-top: 50px;
+		}
+
+		table {
+			border: 1px solid red;
+			text-align: center;
+			margin: auto;
+			width: 500px;
+			margin-top: 100px;
+		}
+
+		td, tr {
+			text-align: center;
+			border: 1px solid;
+		}
+
+		.onmouseover {
+			background-color: red;
+		}
+
+		.onmouseout {
+			background-color: white;
+		}
+	</style>
+</head>
+
+
+<body>
+<div>
+	编号:<input id="id" type="text">
+	姓名:<input id="name" type="text">
+	性别:<input id="sex" type="text">
+	<input id="add1" type="button" value="添加">
+</div>
+
+<div id="div1" class="div">fdsfdfsd</div>
+
+
+</body>
+<script>
+
+	$(function () {
+	    $("#div1").mouseover(function () {
+			$(this).css("background-color","yellow");
+        })
+    })
+</script>
+</html>

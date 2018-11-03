@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../lib/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+
+        // jq的遍历方式
+        // 1. jq对象.each(callback)
+        //  语法：
+        //     jquery对象.each(function(index,element){});
+        // * index:就是元素在集合中的索引
+        // * element：就是集合中的每一个元素对象
+        // * this：集合中的每一个元素对象
+        //
+        // 2. 回调函数返回值：
+        // * true:如果当前function返回为false，则结束循环(break)。
+        // * false:如果当前function返回为true，则结束本次循环，继续下次循环(continue)
+        //      $.each(object, [callback])
+        //
+        // 3. for..of: jquery 3.0 版本之后提供的方式
+        // for(元素对象 of 容器对象)         for( li  of   $("li") ){}
+
+        $(function () {
+            var citys = $("#city li");
+            //jq中所有的数组的长度都是length属性表示, 没有size这种方法
+            for (var i = 0 ; i < citys.length ; i++){
+                var context = $(citys[i]).html();
+                if (context == "上海"){
+                    continue;
+                    // break;
+                }
+                alert(context)
+            }
+
+            // citys.each(index,element){
+            //     alert(index + " : " + element.innerHTML)
+            // }
+
+            citys.each(function (index,element) {            //只能是jq对象调用
+                if ("上海" == element.innerHTML){
+                    // return false;       //结束循环
+                    return true;            //结束本次,开启下次
+                }
+                alert(index + " : " + element.innerHTML)
+            })
+
+            $.each(citys,function (index,element) {     //扩展性写法, 数组可以不是jq对象,任何数组都可以遍历
+                if ("上海" == element.innerHTML){
+                    // return false;
+                    return true;
+                }
+                alert(index + " : " + element.innerHTML)
+            })
+        })
+
+    </script>
+</head>
+<body>
+<ul id="city">
+    <li>北京</li>
+    <li>上海</li>
+    <li>天津</li>
+    <li>重庆</li>
+</ul>
+</body>
+</html>

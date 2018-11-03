@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+            $("div[class]").html("指定属性选择器");
+
+            });
+            $("#btn2").click(function () {
+                $("div[class='cls2']").css("backgroundColor","pink");
+
+            });
+            $("#btn3").click(function () {
+                $("div[class='cls3'][color='red']").css("backgroundColor","black");
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="指定属性选择器">
+<input type="button" id="btn2" value="指定属性值的选择器">
+<input type="button" id="btn3" value="复合属性选择器">
+<div id="div1" class="cls1" color="red">div1</div>
+<div id="div2" class="cls2" color="red">div2</div>
+<div id="div3" class="cls3" color="red">div3</div>
+<div id="div4" class="cls4" color="red">div4</div>
+<div id="div5">div5</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="img/off.gif" id="img">
+<script>
+    var tem = "off";
+    var img_id = document.getElementById("img");
+    img_id.onclick = function () {
+        if(tem=="off"){
+        img_id.setAttribute("src","img/on.gif");
+        tem="on";
+        }else {
+            img_id.setAttribute("src","img/off.gif");
+            tem="off";
+        }
+    }
+</script>
+</body>
+</html>

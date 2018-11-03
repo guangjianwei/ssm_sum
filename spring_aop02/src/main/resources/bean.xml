@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="accountService" class="cn.guangjian.Service.AccountServiceImpl"></bean>
+    <bean id="logger" class="cn.guangjian.utils.log"></bean>
+    <!--spring中基于xml的aop配置步骤
+    1.把需要通知的bean交给spring来管理
+    2.使用aop—config进行aop初始配置
+    3.使用aop-aspect表明配置切面
+          id的属性，给切面配置一个唯一标识
+          ref属性：是指定通知类的bean的id
+
+
+    -->
+    <!--配置aop-->
+    <aop:config>
+        <aop:aspect id="logAdvice" ref="logger">
+            <!--&lt;!&ndash;前置通知&ndash;&gt;-->
+            <!--<aop:before method="beforePrintLog" pointcut-ref="pt1"></aop:before>-->
+            <!--&lt;!&ndash;后置通知&ndash;&gt;-->
+            <!--<aop:after-returning method="afterRturnningPrintLog"  pointcut-ref="pt1"></aop:after-returning>-->
+            <!--&lt;!&ndash;异常通知&ndash;&gt;-->
+            <!--<aop:after-throwing method="afterThrowingPrintLog"  pointcut-ref="pt1"></aop:after-throwing>-->
+            <!--&lt;!&ndash;最终通知&ndash;&gt;-->
+            <!--<aop:after method="afterPrintLog"  pointcut-ref="pt1"></aop:after>-->
+            <!-- 配置环绕通知 详细的注释请看Logger类中-->
+            <aop:around method="aroundPringLog" pointcut-ref="pt1"></aop:around>
+            <!--配置切入点表达式
+            也可以配置再aspect外面，这样就表示了所有切面可用（这里要注意的是，如果配置再外面，就一定要把配置放在切面之前 ，否则将会报错）
+            -->
+            <aop:pointcut id="pt1" expression="execution(* cn.guangjian.Service.*.*(..))"></aop:pointcut>
+        </aop:aspect>
+    </aop:config>
+</beans>

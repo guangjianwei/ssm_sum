@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            width: 100%;
+        }
+        .div {
+            width: 100%;
+            margin-top: 100px;
+        }
+
+        .tab {
+            margin: auto;
+            text-align: center;
+            border: 2px solid gray;
+            width: 40%;
+            height: 30%;
+        }
+
+        td, th {
+            border: 1px solid gray;
+        }
+
+        .div1 {
+            margin-top: 20px;
+            text-align: center;
+
+        }
+        .in{
+            background: rebeccapurple;
+        }
+        .outer{
+            background: white;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            document.getElementById("qx").onclick=function () {
+                var elby = document.getElementsByClassName("ch");
+                for(var i = 0;i<elby.length;i++){
+                    elby[i].checked=true;
+                }
+
+            }
+            document.getElementById("bqx").onclick=function () {
+                var elby = document.getElementsByClassName("ch");
+                for(var i = 0;i<elby.length;i++){
+                    elby[i].checked=false;
+                }
+
+            }
+            document.getElementById("fx").onclick=function () {
+                var elby = document.getElementsByClassName("ch");
+                for(var i = 0;i<elby.length;i++){
+                    elby[i].checked=!elby[i].checked;
+                }
+
+            }
+            var eleTaName = document.getElementsByTagName("tr");
+            for(var i = 0;i<eleTaName.length;i++){
+                eleTaName[i].onmouseover=function () {
+                    this.className="in";
+                };
+                eleTaName[i].onmouseout=function () {
+                    this.className="outer";
+                };
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="div">
+    <table class="tab">
+        <tr>
+            <th><input type="checkbox" class="ch"></th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="ch"></td>
+            <td>张三</td>
+            <td>17</td>
+            <td>男</td>
+            <td><input type="button" value="删除"></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="ch"></td>
+            <td>李四</td>
+            <td>18</td>
+            <td>女</td>
+            <td><input type="button" value="删除"></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="ch"></td>
+            <td>王五</td>
+            <td>19</td>
+            <td>男</td>
+            <td><input type="button" value="删除"></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" class="ch"></td>
+            <td>李菲儿</td>
+            <td>19</td>
+            <td>女</td>
+            <td><input type="button" value="删除"></td>
+        </tr>
+    </table>
+</div>
+<div class="div1">
+    <input type="button" value="全选" id="qx">&nbsp;&nbsp;&nbsp;
+    <input type="button" value="全不选" id="bqx">&nbsp;&nbsp;&nbsp;
+    <input type="button" value="反选" id="fx">
+</div>
+<span>无敌小神童</span>
+<style>
+    span{
+        font-weight: 900;
+    }
+</style>
+</body>
+</html>

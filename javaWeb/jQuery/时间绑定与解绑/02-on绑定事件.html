@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+$(function () {
+    $("#btn").on("click",function () {
+        alert("呵呵哒");
+    });
+    $("#btn").on("mouseout",function () {
+        alert("鼠标离开事件");
+    });
+    $("#btn2").on("click",function () {
+        $("#btn").off(); //off("")是将对象身上如果有参数,是将指定的事件解绑,如果没有参数,则是将对象身上绑定的所有事件解绑
+    });
+
+});
+
+    </script>
+</head>
+<body>
+<input id="btn" type="button" value="使用on绑定点击事件">
+<input id="btn2" type="button" value="使用off解绑点击事件">
+</body>
+</html>

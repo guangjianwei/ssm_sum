@@ -1,0 +1,12 @@
+cn\guangjian\service\impl\OrderServiceImpl.class
+cn\guangjian\service\impl\ProductServiceImpl.class
+cn\guangjian\service\impl\RoleServiceImpl.class
+cn\guangjian\service\ProductService.class
+cn\guangjian\service\RoleService.class
+cn\guangjian\service\PermissionService.class
+cn\guangjian\service\impl\SysLogServiceImpl.class
+cn\guangjian\service\impl\UserServiceImpl.class
+cn\guangjian\service\SysLogService.class
+cn\guangjian\service\UserService.class
+cn\guangjian\service\impl\PermissionServiceImpl.class
+cn\guangjian\service\OrdersService.class

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #img{
+            margin: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<img src="img/banner_1.jpg" id="img">
+<script>
+    var tem = 1;
+    var img_id = document.getElementById("img");
+    //setInterval() 按照指定的周期（以毫秒计）来调用函数或计算表达式。
+    var change=function () {
+        if(tem==3){
+            tem=1;
+            var newTem = "img/banner_"+tem+".jpg";
+            img_id.setAttribute("src",newTem);
+        }else {
+            tem++;
+            var newTem = "img/banner_"+tem+".jpg";
+            img_id.setAttribute("src",newTem);
+        }
+
+    }
+    setInterval("change()",1000);
+</script>
+</body>
+</html>

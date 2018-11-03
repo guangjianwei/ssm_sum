@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                $("div:first").html("div-first");
+            });
+            $("#btn2").click(function () {
+                $("div:last").html("div-last");
+            });
+            $("#btn3").click(function () {
+                $("div:not(#div3)").html("not-div3");
+            });
+            $("#btn4").click(function () {
+                $("div:even").css("backgroundColor", "red");
+            });
+            $("#btn5").click(function () {
+                $("div:odd").css("backgroundColor", "yellow");
+            });
+            $("#btn6").click(function () {
+
+                $("div:eq(1)").css("backgroundColor", "black");
+            });
+            $("#btn7").click(function () {
+                $("div:gt(3)").css("backgroundColor", "pink");
+
+            });
+            $("#btn8").click(function () {
+                $("div:lt(3)").css("backgroundColor", "blue");
+
+            });
+            $("#btn9").click(function () {
+                $(":header").text("哈哈哈");
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+<!--1. 首元素选择器-->
+<!--* 语法： :first 获得选择的元素中的第一个元素-->
+<!--2. 尾元素选择器-->
+<!--* 语法： :last 获得选择的元素中的最后一个元素-->
+<!--3. 非元素选择器-->
+<!--* 语法： :not(selector) 不包括指定内容的元素-->
+<!--4. 偶数选择器-->
+<!--* 语法： :even 偶数，从 0 开始计数-->
+<!--5. 奇数选择器-->
+<!--* 语法： :odd 奇数，从 0 开始计数-->
+<!--6. 等于索引选择器-->
+<!--* 语法： :eq(index) 指定索引元素-->
+<!--7. 大于索引选择器-->
+<!--* 语法： :gt(index) 大于指定索引元素-->
+<!--8. 小于索引选择器-->
+<!--* 语法： :lt(index) 小于指定索引元素-->
+<!--9. 标题选择器-->
+<!--* 语法： :header 获得标题（h1~h6）元素，固定写法-->
+<h1>h1呵呵哒</h1>
+<h2>h2么么哒</h2>
+<input type="button" id="btn1" value=":first">
+<input type="button" id="btn2" value=":last">
+<input type="button" id="btn3" value=":not(selector)">
+<input type="button" id="btn4" value=":even">
+<input type="button" id="btn5" value=":odd">
+<input type="button" id="btn6" value=":eq(index)">
+<input type="button" id="btn7" value=":gt(index)">
+<input type="button" id="btn8" value=":lt(index)">
+<input type="button" id="btn9" value=" :header">
+<div id="div1">div1</div>
+<div id="div2">div2</div>
+<div id="div3">div3</div>
+<div id="div4">div4</div>
+<div id="div5">div5</div>
+</body>
+</html>

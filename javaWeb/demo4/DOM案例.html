@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            text-align:center;
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        #div2,#div1{
+            margin-top: 80px;
+        }
+        table{
+            padding: 1px;
+            margin: auto;
+            border: 1px solid rebeccapurple;
+            height: 250px;
+            width: 40%;
+        }
+        td,th{
+            text-align: center;
+            border: 1px solid rebeccapurple;
+        }
+        lable{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id = "div1">
+   <lable>编号</lable> <input type="text" id="bh_id"/>
+    <lable>姓名</lable> <input type="text" id="xm_id"/>
+    <lable>性别</lable><input type="text" id="xb_id"/>
+    <input  type="button" value="添加" id = "add_id"/>
+</div>
+<div id = "div2">
+    <table id = "tab">
+        <caption><h4>学生信息表</h4></caption>
+        <tr><td>编号</td><td>姓名</td><td>性别</td><td>操作</td></tr>
+        <tr><td>001</td><td>张三</td><td>男</td><td><input  type='button' value='删除' onclick='del(this)'></td></tr>
+        <tr><td>002</td><td>李四</td><td>男</td><td><input  type='button' value='删除' onclick='del(this)'></td></tr>
+        <tr><td>003</td><td>王二娘</td><td>女</td><td><input  type='button' value='删除' onclick='del(this)'></td></tr>
+        <tr><td>004</td><td>王五</td><td>男</td><td><input  type='button' value='删除' onclick='del(this)'></td></tr>
+    </table>
+</div>
+<script>
+    //添加方法创建
+    document.getElementById("add_id").onclick= function() {
+       // 获取输入框里面的值
+        var bh_val = document.getElementById("bh_id").value;
+        var xm_val= document.getElementById("xm_id").value;
+        var xb_val = document.getElementById("xb_id").value;
+        //创建三个td对象
+        var td_bh = document.createElement("td");
+            td_bh.textContent=bh_val;  //td设置内容
+        var td_xm = document.createElement("td");
+            td_xm.textContent=xm_val;  //td设置内容
+        var td_xb = document.createElement("td");
+            td_xb.textContent=xb_val;  //td设置内容
+        //创建一个tr对象
+         var tr = document.createElement("tr");
+         tr.appendChild(td_bh);
+         tr.appendChild(td_xm);
+         tr.appendChild(td_xb);
+
+        var tab_obj = document.getElementById("tab"); //获取到table的DOM对象
+        tab_obj.appendChild(tr);
+
+        //最后添加操作的td对象 <input  type='button' value='删除' onclick='del(this)'>
+        var input_obj = document.createElement("input");
+        //为input标签添加属性
+        input_obj.setAttribute("type","button");
+        input_obj.setAttribute("value","删除");
+        input_obj.setAttribute("onclick","del(this)");
+        var cz_obj = document.createElement("td");
+        cz_obj.appendChild(input_obj);
+        //把td加入到tr中
+        tr.appendChild(cz_obj);
+    }
+    //删除方法创建
+    function del(obj){
+        //获取对应的this对象,获取table节点
+        var tab_Node = obj.parentNode.parentNode.parentNode;
+        //利用table节点删除他的子节点
+        tab_Node.removeChild(obj.parentNode.parentNode);
+    }
+</script>
+</body>
+</html>

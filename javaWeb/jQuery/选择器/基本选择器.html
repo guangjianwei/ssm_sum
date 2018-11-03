@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                $("div").css("backgroundColor","gray");
+
+            });
+            $("#btn2").click(function () {
+                $("#div2").html("<h3>id选择器</h3>");
+
+            });
+            $(".cls3").click(function () {
+                $("#div3").html("<h3>类选择器</h3>");
+
+            });
+            $("#btn4").click(function () {
+                $("#div4,#div5").html("<h3>并集选择器</h3>");
+
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="标签选择器">
+<input type="button" id="btn2" value="id选择器">
+<input type="button" id="btn3" value="类选择器" class="cls3">
+<input type="button" id="btn4" value="并集选择器">
+<div id="div1">div1</div>
+<div id="div2">div2</div>
+<div id="div3">div3</div>
+<div id="div4">div4</div>
+<div id="div5">div5</div>
+</body>
+</html>

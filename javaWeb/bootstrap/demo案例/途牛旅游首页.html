@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+     .in{
+         margin-top: 20px;
+         margin-left: 50px;
+         float: left;
+         border: 2px solid yellow;
+         width: 350px;
+         line-height:30px ;
+         padding-left: 5px ;
+     }
+        .sp{
+            text-align: center;
+            margin-top: 20px;
+            width: 65px;
+            line-height: 36px;
+            float: left;
+            font-size: 15px;
+            background-color: yellow;
+
+        }
+        .logo{
+            margin-left: 70px;
+           height: 40px;
+            width: 180px;
+            margin-top: 0px;
+        }
+        .hot{
+            margin-bottom:-12px;
+            margin-left: 70px;
+            width: 210px;
+
+        }
+        .navbar{
+            margin-top: 20px;
+        }
+        .con{
+            background-color: yellow;
+        }
+        #heima,#heima1,#heima2{
+            margin-top: 10px;
+            border-bottom: 2px solid yellow;
+        }
+        .col-md-3{
+            margin-top: 10px;
+        }
+        #footer{
+            margin-top: 10px;
+            background-color: yellow;
+        }
+      #footer{
+          height: 100px;
+
+      }
+      #fott{
+            text-align: center;
+         margin-top: 10px;
+        }
+        #img_j4,#img_j5,#img_j6,#img_j7,#img_j8,#img_j9,#img_j10,#img_j11{
+            height: 170px;
+        }
+    </style>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--头部-->
+<div class="container-fluid">
+    <div class="row">
+        <img src="../img/top_banner.jpg" class="img img-responsive">
+    </div>
+    <div class="row">
+        <div class="col-md-3 inner">
+            <img src="../img/logo.jpg" class="logo img-responsive ">
+        </div>
+        <div class="col-md-5 inner">
+          <input type="text" class="in" placeholder="请输入内容">
+            <a class="sp">搜索</a>
+        </div>
+        <div class="col-md-4 inner">
+            <img src="../img/hotel_tel.png" class="hot img-responsive ">
+        </div>
+
+    </div>
+</div>
+<!--主体部分-->
+<div class="container">
+    <div class="row ">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid con">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div class="row">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="../img/banner_1.jpg" >
+                </div>
+                <div class="item">
+                    <img src="../img/banner_2.jpg" >
+                </div>
+                <div class="item">
+                    <img src="../img/banner_3.jpg" >
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="row" id="heima">
+        <img src="../img/icon_5.jpg"  id="icon5">
+        <span class="heima">黑马精选</span>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="../img/jiangxuan_1.jpg" alt="">
+            <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+            <font color="red">&yen; 899</font>
+        </div>
+        <div class="col-md-3">
+            <img src="../img/jiangxuan_1.jpg" alt="">
+            <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+            <font color="red">&yen; 899</font>
+        </div>
+        <div class="col-md-3">
+            <img src="../img/jiangxuan_1.jpg" alt="">
+            <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+            <font color="red">&yen; 899</font>
+        </div>
+        <div class="col-md-3">
+            <img src="../img/jiangxuan_1.jpg" alt="">
+            <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+            <font color="red">&yen; 899</font>
+        </div>
+    </div>
+    <div class="row" id="heima1">
+        <img src="../img/icon_6.jpg">
+        <span class=>国内游</span>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <img src="../img/jiangxuan_1.jpg" alt="">
+            <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+            <font color="red">&yen; 899</font>
+        </div>
+        <div class="col-md-3">
+            <img src="../img/jiangxuan_1.jpg" alt="">
+            <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+            <font color="red">&yen; 899</font>
+        </div>
+        <div class="col-md-3">
+            <img src="../img/jiangxuan_1.jpg" alt="">
+            <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+            <font color="red">&yen; 899</font>
+        </div>
+        <div class="col-md-3">
+            <img src="../img/jiangxuan_1.jpg" alt="">
+            <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+            <font color="red">&yen; 899</font>
+        </div>
+    </div>
+    <div class="row" id="heima2">
+        <img src="../img/icon_6.jpg">
+        <span class=>特惠游</span>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"><img src="../img/guonei_1.jpg" class="img-responsive"></div>
+            <div class="col-md-2">
+                <div class="row"><img src="../img/jiangxuan_4.jpg" class="img-responsive" id="img_j4">
+                    <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+                    <font color="red">&yen; 899</font></div>
+                <div class="row"><img src="../img/jiangxuan_4.jpg" class="img-responsive" id="img_j5">
+                    <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+                    <font color="red">&yen; 899</font></div>
+            </div>
+            <div class="col-md-2">
+                <div class="row"><img src="../img/jiangxuan_4.jpg" class="img-responsive" id="img_j6">
+                    <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+                    <font color="red">&yen; 899</font></div>
+                <div class="row"><img src="../img/jiangxuan_4.jpg" class="img-responsive" id="img_j7">
+                    <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+                    <font color="red">&yen; 899</font></div>
+            </div>
+            <div class="col-md-2">
+                <div class="row"><img src="../img/jiangxuan_4.jpg" class="img-responsive" id="img_j8">
+                    <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+                    <font color="red">&yen; 899</font></div>
+                <div class="row"><img src="../img/jiangxuan_4.jpg" class="img-responsive" id="img_j9">
+                    <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+                    <font color="red">&yen; 899</font></div>
+            </div>
+            <div class="col-md-2">
+                <div class="row"><img src="../img/jiangxuan_4.jpg" class="img-responsive" id="img_j10">
+                    <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+                    <font color="red">&yen; 899</font></div>
+                <div class="row"><img src="../img/jiangxuan_4.jpg" class="img-responsive" id="img_j11">
+                    <p>上海飞三亚五天4晚自由行(春节销售+亲子+蜜月+自由行)</p>
+                    <font color="red">&yen; 899</font></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+<!--尾部-->
+<footer class="container" id="footer">
+    <div class="row">
+        <img src="../img/footer_service.png" class="img-responsive">
+    </div>
+    <div class="row" id="fott">
+        <font color="gray" size="1">
+            江苏传智播客教育科技股份有限公司
+            版权所有Copyright 2006-2018&copy;, All Rights Reserved 苏ICP备16007882
+        </font>
+    </div>
+
+</footer>
+</body>
+</html>

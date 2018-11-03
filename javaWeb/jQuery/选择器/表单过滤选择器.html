@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+     $(function () {
+         $("#btn1").click(function () {
+             $(".input:enabled").val("可更改的input");
+         });
+     });
+     $(function () {
+         $("#btn2").click(function () {
+             $(".input:disabled").val("不可更改的input");
+         });
+     });
+     $(function () {
+         $("#btn3").click(function () {
+           alert($(".check1:checked").length);
+         });
+     });
+     $(function () {
+         $("#btn4").click(function () {
+             alert($(".select2>option:selected").length);  //这里要注意的时后面要跟上option
+         });
+     });
+
+    </script>
+</head>
+<body>
+<!--5. 表单过滤选择器-->
+<!--1. 可用元素选择器-->
+<!--* 语法： :enabled 获得可用元素-->
+<!--2. 不可用元素选择器-->
+<!--* 语法： :disabled 获得不可用元素-->
+<!--3. 选中选择器-->
+<!--* 语法： :checked 获得单选/复选框选中的元素-->
+<!--4. 选中选择器-->
+<!--* 语法： :selected 获得下拉框选中的元素-->
+<input type="button" id="btn1" value="可用元素选择器">
+<input type="button" id="btn2" value="不可用元素选择器">
+<input type="button" id="btn3" value="选中选择器checked">
+<input type="button" id="btn4" value="选中选择器selected">
+<br>
+<input type="text" class="input" value="input1" disabled="disabled">
+<input type="text" class="input" value="input2" disabled="disabled">
+<input type="text" class="input" value="input3">
+<input type="text" class="input" value="input4">
+<br>
+<input type="checkbox" class="check1">
+<input type="checkbox" class="check1">
+<input type="checkbox" class="check1">
+<input type="checkbox" class="check1">
+<br>
+<select class="select1">
+    <option value="湖南">湖南</option>
+    <option value="灵璧" selected>灵璧</option>
+    <option value="北京">北京</option>
+    <option value ="上海">上海</option>
+    <option value="广州">广州</option>
+</select>
+<br>
+<select class="select2" multiple="multiple">
+    <option>湖南</option>
+    <option>灵璧</option>
+    <option>北京</option>
+    <option>上海</option>
+    <option>广州</option>
+</select>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../AjaxWeb/AjaxWeb.iml" filepath="$PROJECT_DIR$/../AjaxWeb/AjaxWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../AjaxWebDemo/AjaxWebDemo.iml" filepath="$PROJECT_DIR$/../AjaxWebDemo/AjaxWebDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FilterListener/FileterListener.iml" filepath="$PROJECT_DIR$/../FilterListener/FileterListener.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FilterListener/FilterListener.iml" filepath="$PROJECT_DIR$/../FilterListener/FilterListener.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../WEB13/WEB13.iml" filepath="$PROJECT_DIR$/../WEB13/WEB13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javaWEBD.iml" filepath="$PROJECT_DIR$/javaWEBD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javaWEBD1/javaWEBD1.iml" filepath="$PROJECT_DIR$/../javaWEBD1/javaWEBD1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javaWEBD2/javaWEBD2.iml" filepath="$PROJECT_DIR$/../javaWEBD2/javaWEBD2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javaWEBDemo/javaWEBDemo.iml" filepath="$PROJECT_DIR$/../javaWEBDemo/javaWEBDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javaWEBJSP/javaWEBJSP.iml" filepath="$PROJECT_DIR$/../javaWEBJSP/javaWEBJSP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javaWEBredis/javaWEBredis.iml" filepath="$PROJECT_DIR$/../javaWEBredis/javaWEBredis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javaweb_基础/javaweb_基础.iml" filepath="$PROJECT_DIR$/../javaweb_基础/javaweb_基础.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javaweb_基础/src/javaweb_基础1.iml" filepath="$PROJECT_DIR$/../javaweb_基础/src/javaweb_基础1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../javawebb/javawebb.iml" filepath="$PROJECT_DIR$/../javawebb/javawebb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../web/web.iml" filepath="$PROJECT_DIR$/../web/web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../web1/web1.iml" filepath="$PROJECT_DIR$/../web1/web1.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day04_Test01_电灯开关</title>
+</head>
+<body>
+
+<img src="image/on.gif" id="light">
+
+<script>
+    /*
+    *       1.有图片  on.gif  off.gif
+    *       2.拿到显示图片的控件
+    *           document.getelementbyid()
+    *       3.对控件设置点击事件
+    *           onclick
+    *       4.判断当前是开还是关
+    *            if(){
+    *                 5.设置对应的开关图片
+    *            }
+    *            else{
+    *                 5.设置对应的开关图片
+    *            }
+    *
+    * */
+
+
+
+    var flag = true;
+    function clickSwitch() {
+        if (flag){                                  //判断当前是开还是关
+            light.src = "image/off.gif";                //设置对应的开关图片
+        }else {
+            light.src = "image/on.gif"                  //设置对应的开关图片
+        }
+        flag = !flag;
+    }
+
+    var fun1 = function () {
+        if (flag){
+            light.src = "image/off.gif";
+        }else {
+            light.src = "image/on.gif"
+        }
+        flag = !flag;
+    }
+    var light = document.getElementById("light");           //拿到显示图片的控件
+    //如果直接赋值方法名,不需要加() ,   加上 () ,相当于调用方法
+    light.onclick = clickSwitch;
+    // light.onclick = fun1;                                   //对控件设置点击事件
+
+    light.onclick = function () {
+        if (flag){
+            light.src = "image/off.gif";
+        }else {
+            light.src = "image/on.gif"
+        }
+        flag = !flag;
+    }
+</script>
+
+</body>
+</html>

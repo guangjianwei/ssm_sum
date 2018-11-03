@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单校验</title>
+    <script src="../lib/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+        $("#username").blur(function () {
+            $.post(
+                "user/registFormServlet",
+                $(this).serialize(),
+                function (data) {
+                    console.log(data);
+                    //拿到data去做界面的错误显示
+                    if (data.flag) {
+                        //注册成功
+                        location.href = "register_ok.html"
+                    } else {
+                        //注册失败,显示错误信息
+                        $("#errorMsg").html(data.errorMsg)
+                        $("#errorMsg").addClass("errorMsg")
+                    }
+                },
+                //定义返回结果的类型
+                "json"
+            )
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+</html>

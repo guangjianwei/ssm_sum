@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+            padding:0;
+            background-image: url("img/bg.png");
+            background-repeat: no-repeat;
+            background-size:100% auto;
+        }
+        .div1{
+            margin: 10px auto;
+            margin-top: 100px;
+            text-align: center;
+            background-color: white;
+            border: 4px solid green;
+            width: 40%;
+            height: 400px;
+        }
+        form{
+            margin-top: 50px;
+        }
+        table{
+            margin: 10px auto;
+            font-family: "新宋体";
+            font-weight: 600;
+        }
+        td{
+            text-align: right;
+        }
+        .input_right{
+            text-align: left;
+        }
+        input{
+            border-radius: 5px;
+            height: 25px;
+
+        }
+        .input_btn:hover{
+            background-color: grey;
+        }
+        .input_bt:hover{
+            border: 2px solid grey;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">
+    <form action="/demo" method="get">
+        <table>
+            <tr><td>用户名：</td><td><input type="text" name="username" class="input_bt"><br/></td></tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="password" class="input_bt"><br/></td>
+            </tr>
+            <tr><td>邮箱：</td><td><input type="text" name="username" class="input_bt"><br/></td></tr>
+            <tr><td>性别：</td><td><input type="text" name="username" class="input_bt"><br/></td></tr>
+            <tr><td>手机号码：</td><td><input type="text" name="username" class="input_bt"><br/></td></tr>
+            <tr><td>验证码：</td><td><input type="text" name="username" class="input_bt"><br/></td></tr>
+            <tr><td></td><td class="input_right"><input type="submit" value="注册" class="input_btn"><input type="submit" value="清空" class="input_btn"></td></tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

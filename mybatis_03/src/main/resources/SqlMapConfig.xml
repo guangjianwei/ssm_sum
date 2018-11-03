@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--主配置信息-->
+<configuration>
+    <!--配置properties
+       可以在标签内部配置连接数据库信息,也可以通过属性引入外部配置信息
+      resource属性:通常用于指定配置文件的位置,是按照类路径来写,并且必须存在于类路径下
+      url属性:是要求按照Url的写法来写地址-->
+    <properties  resource="jdbcConfig.properties">
+        <!--<property name="driver" value="com.mysql.jdbc.Driver"></property>-->
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/mybatisdb"></property>-->
+        <!--<property name="username" value="root"></property>-->
+        <!--<property name="password" value="root"></property>-->
+    </properties>
+    <typeAliases>
+        <!--typeAliases用于配置别名,type属性指定的是类的全限定类名,alias属性指定别名,当指定了就不在区分大小写了-->
+        <!--<typeAlias type="cn.guangjian.mybatis.domain.User" alias="user"></typeAlias>-->
+        <package name="cn.guangjian.mybatis.domain"></package>
+    </typeAliases>
+    <!--配置mysql环境-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <!--配置事务-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--配置连接池-->
+            <dataSource type="POOLED">
+                <!--配置连接数据库的四个基本信息-->
+                <property name="driver" value="${jdbc.driver}"></property>
+                <property name="url" value="${jdbc.url}"></property>
+                <property name="username" value="${jdbc.username}"></property>
+                <property name="password" value="${jdbc.password}"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--映射文件位置-->
+    <mappers>
+        <mapper resource="cn/guangjian/mybatis/dao/UserMapper.xml"></mapper>
+        <!--package标签是用于指定dao接口所对应的包,当指定之后,就不需要在写resource或者class或者mapper了-->
+        <!--<package name="cn.guangjian.mybatis.dao.UserDao"></package>-->
+    </mappers>
+
+</configuration>

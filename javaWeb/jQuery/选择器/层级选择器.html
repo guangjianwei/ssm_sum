@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <style>
+        div{
+            border:1px solid red;
+            width: 300px;
+        }
+        #div1{
+            height: 400px;
+            width: 300px;
+        }
+        #div2{
+            height: 130px;
+            width: 250px;
+        }
+        #div3{
+            height: 130px;
+            width: 200px;
+        }
+        #div4{
+            height: 40px;
+            width: 100px;
+        }
+        #div5{
+            height: 40px;
+            width: 90px;
+        }
+    </style>
+    <script>
+        $(function () {
+          $("#btn1").click(function () {
+              $("#div1 div").css("backgroundColor","red");
+
+          });
+            $("#btn2").click(function () {
+                $("#div1 > div").css("backgroundColor","blue");
+
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="后代选择器">
+<input type="button" id="btn2" value="子类选择器">
+<div id="div1">div1
+    <div id="div2">div2</div>
+    <div id="div3">div3
+        <div id="div4">div4</div>
+        <div id="div5">div5</div>
+    </div>
+
+</div>
+</body>
+</html>

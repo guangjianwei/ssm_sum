@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            text-align: center;
+        }
+        label{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p><label id="lab">5</label>秒后自动跳转到"电灯开关.html"</p>
+<script>
+    var label = document.getElementById("lab");
+    var val = label.innerText;
+    function change(){
+        if(val<=0){
+            location.href = "电灯开关.html";
+        }
+        val--;
+        label.innerText=val;
+    }
+    setInterval("change()",1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+cn\guangjian\controller\OrderController.class
+cn\guangjian\controller\UserController.class
+cn\guangjian\controller\RolesController.class
+cn\guangjian\controller\LogAop.class
+cn\guangjian\controller\PermissionController.class
+cn\guangjian\controller\LogController.class
+cn\guangjian\controller\ProductController.class

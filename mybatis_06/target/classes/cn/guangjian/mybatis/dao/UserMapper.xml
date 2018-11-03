@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置resultMap-->
+
+<mapper namespace="cn.guangjian.mybatis.dao.UserDao">
+    <!--配置resultMap-->
+    <resultMap id="UCMap" type="account">
+        <id property="id" column="aid"></id>
+        <result property="uid" column="uid"></result>
+        <result property="money" column="money"></result>
+        <!--配置一对一关系映射-->
+        <association property="user" column="uid" javaType="user" select="cn.guangjian.mybatis.dao.UserDao.findById"></association>
+    </resultMap>
+    <resultMap id="usermap" type="user">
+        <id property="userId" column="id"></id>
+        <result property="userAddress" column="address"></result>
+        <result property="userSex" column="sex"></result>
+        <result property="userName" column="username"></result>
+        <result property="userBirthday" column="birthday"></result>
+    </resultMap>
+
+    <select id="findAll" resultMap="UCMap">
+        select * from account
+    </select>
+    <select id="findById" parameterType="int" resultMap="usermap">
+        select * from user where id = #{uid}
+    </select>
+    <!--一级缓存检测-->
+    <select id="testFirstLevelCache" parameterType="INT" resultMap="usermap" >
+        select * from user where id = #{userId}
+    </select>
+    <select id="updateUser" parameterType="user">
+        update user set username = #{userName},address=#{userAddress} where id = #{userId}
+    </select>
+</mapper>

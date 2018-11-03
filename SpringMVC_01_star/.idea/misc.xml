@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$/../SpringMVC_02_star2" />
+    <file type="web" url="file://$PROJECT_DIR$/../SpringMVC_04_star4" />
+    <file type="web" url="file://$PROJECT_DIR$/../SpringMVC_05_interceptor" />
+    <file type="web" url="file://$PROJECT_DIR$/../ssm_01" />
+    <file type="web" url="file://$PROJECT_DIR$/../ssm_02" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../SpringMVC_02_star2/pom.xml" />
+        <option value="$PROJECT_DIR$/../SpringMVC_04_star4/pom.xml" />
+        <option value="$PROJECT_DIR$/../SpringMVC_05_interceptor/pom.xml" />
+        <option value="$PROJECT_DIR$/../ssm_01/pom.xml" />
+        <option value="$PROJECT_DIR$/../ssm_02/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

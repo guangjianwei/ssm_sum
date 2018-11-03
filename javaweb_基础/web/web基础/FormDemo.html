@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form表单提交</title>
+</head>
+<body>
+<!--
+1.Form表单提交数据
+    表单的作用:  表单的作用是用来在客户端收集数据的，需要提交到服务器的数据需放在表单中
+    action属性:   设置提交后台的地址,如果没有设置,那么默认提交给自己
+    method属性:   提交数据使用什么方法,常用方法为 get \ post 两种, 默认为 get
+    name属性:     Form表单中的name属性,没啥大用,提交表单并不需要设置,而且不能用来当作表单提交的路径
+    所有的input标签中,如果想要提交数据到服务器,必须要设置name属性.
+
+2.get和post方法的区别
+    get方法:
+        传递参数保存到地址值上,相对post不安全,传递数据大小有限制,不可提交大量数据
+        一般用来做数据查询的参数传递
+    post方法:
+        传递参数保存的请求体中,相对get比较安全,传递数据大小无限制,可提交大量数据
+        一般用来对数据进行 增\删\改 的参数传递
+-->
+
+<form action="../ServletRequest" method="post">
+    <input type="text" name="name">
+    <input type="submit" value="提交">
+
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+            $("#div1").html("DIV1");
+            });
+            $("#btn2").click(function () {
+            $("#div2").css("backgroundColor","red");
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" id="btn1" value="给div1赋值为大写的DIV1">
+<input type="button" id="btn2" value="把div2的css,bgcolor设置为红色">
+<input type="button" id="btn3" value="">
+<input type="button" id="btn4" value="">
+<div id="div1">div1</div>
+<div id="div2">div2</div>
+<div id="div3">div3</div>
+<div id="div4">div4</div>
+</body>
+</html>

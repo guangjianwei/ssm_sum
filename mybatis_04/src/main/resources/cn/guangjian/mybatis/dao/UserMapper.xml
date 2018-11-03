@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--配置resultMap-->
+
+<mapper namespace="cn.guangjian.mybatis.dao.UserDao">
+    <!--配置resultMap-->
+    <resultMap id="userMap" type="user">
+  <id property="userId" column="id"></id>
+        <result property="userAddress" column="address"></result>
+        <result property="userSex" column="sex"></result>
+        <result property="userName" column="username"></result>
+        <result property="userBirthday" column="birthday"></result>
+    </resultMap>
+    <resultMap id="UCMap" type="account">
+        <id property="id" column="aid"></id>
+        <result property="uid" column="uid"></result>
+        <result property="money" column="money"></result>
+        <!--配置一对一关系映射-->
+        <association property="user" column="uid">
+            <id property="userId" column="id"></id>
+            <result property="userAddress" column="address"></result>
+            <result property="userSex" column="sex"></result>
+            <result property="userName" column="username"></result>
+            <result property="userBirthday" column="birthday"></result>
+        </association>
+    </resultMap>
+    <resultMap id="userAccountsMap" type="user">
+        <id property="userId" column="id"></id>
+        <result property="userAddress" column="address"></result>
+        <result property="userSex" column="sex"></result>
+        <result property="userName" column="username"></result>
+        <result property="userBirthday" column="birthday"></result>
+        <!--配置user中的accounts集合映射-->
+        <collection property="accounts" ofType="account">
+            <id column="aid" property="id"></id>
+            <result column="uid" property="uid"></result>
+            <result column="money" property="money"></result>
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="userMap">
+        select * from user
+    </select>
+    <select id="findIf" resultMap="userMap" parameterType="user">
+        select * from user
+        <!--<if test="userName != null">-->
+            <!--and username = #{userName}-->
+        <!--</if>-->
+        <!--<if test="userSex != null">-->
+            <!--and sex = #{userSex}-->
+        <!--</if>-->
+<!--&#45;&#45;         这里有个细节要注意,!=号要连接在一起,不然就就会报错-->
+        <!--<if test="userAddress != null">-->
+            <!--and address  = #{userAddress}-->
+        <!--</if>-->
+        <where>
+            <if test="userName != null">
+                and username = #{userName}
+            </if>
+            <if test="userSex != null">
+                and sex = #{userSex}
+            </if>
+            <if test="userAddress != null">
+                and address  = #{userAddress}
+            </if>
+        </where>
+    </select>
+    <select id="findIds" resultMap="userMap" parameterType="QueryVo">
+        select * from USER
+        <where>
+            <if test="ids != null and ids.size>0">
+               <foreach collection="ids" open="and id in("  close=" )" item="id" separator=",">
+                   #{id}
+               </foreach>
+            </if>
+        </where>
+    </select>
+    <select id="findAccount" resultType="account">
+        SELECT  * from account;
+    </select>
+    <select id="finUserAccount" resultType="userAccount">
+        select a.*,u.username,u.address from account a,user u where a.uid =u.id;
+    </select>
+    <select id="findAccountOther" resultMap="UCMap">
+       select u.*,a.id as aid,a.uid,a.money from account a,user u where a.uid =u.id;
+</select>
+    <select id="findUserAccounts" resultMap="userAccountsMap">
+        SELECT * FROM USER u LEFT OUTER JOIN account a ON u.id = a.uid;
+    </select>
+</mapper>

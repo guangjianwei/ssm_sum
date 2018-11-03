@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5秒后跳转到百度</title>
+    <style>
+        p{
+            text-align: center;
+        }
+        
+        p span{
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <span id="second">5</span>秒后跳转到百度...
+    </p>
+
+<script>
+    var second = document.getElementById("second");
+
+    var tempSecond = 5;
+    function fun() {
+        tempSecond--;
+        second.innerText = tempSecond;
+        if (tempSecond <= 0){
+            location.href = "http://www.baidu.com";
+            clearInterval(interval_id);
+        }
+    }
+    /*调用serInterval间隔行的调用fun方法,  注意 fun方法不需要加() , 间隔时间以毫秒为单位*/
+    var interval_id = setInterval(fun,1000);
+
+
+</script>
+</body>
+</html>

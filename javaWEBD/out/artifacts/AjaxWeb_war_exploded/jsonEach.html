@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script>
+        $.ajax({
+
+            async:true,
+            url:"ajaxServlet1111" , // 请求路径
+            type:"POST" , //请求方式
+            //data: "username=jack&age=23",//请求参数
+            data:{"username":"jack","age":23},
+            success:function (data) {
+                alert(data);
+            },//响应成功后的回调函数
+            error:function () {
+                alert("出错啦...")
+            },//表示如果请求响应出现错误，会执行的回调函数
+
+            dataType:"text"//设置接受到的响应数据的格式
+        });
+        var ps = [{"name": "张三", "age": 23, "gender": true},
+            {"name": "李四", "age": 24, "gender": true},
+            {"name": "王五", "age": 25, "gender": false}];
+        for (var i = 0; i < ps.length; i++) {
+            var p = ps[i];
+            // for(var key in p){
+            //     alert(key+":"+p[key]);
+            // }
+            alert(p.name)
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
